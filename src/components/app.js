@@ -17,7 +17,7 @@ angular.module('video-player')
       this.currentVideo = video;
     };
     
-    youTube.search('dogs', this.result);
+    youTube.search('trees', this.result);
     
     this.search = () => {
       youTube.search(this.searchString, this.result);
