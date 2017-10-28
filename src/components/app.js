@@ -4,22 +4,24 @@ angular.module('video-player')
   // TODO
   controller: function ($scope, youTube) {
     this.selectVideo = function () {};
-    this.searchResults = function () {};
-
+    this.searchResults = function () {
+      
+    };
     
-    this.handleData = (data) => {
+    this.result = (data) => {
       this.videos = data;  
       this.currentVideo = data[0];
     };
     
-    this.updateDefault = (video) => {
+    this.onClick = (video) => {
       this.currentVideo = video;
     };
     
-    youTube.searchYoutube('dogs', this.handleData);
+    youTube.search('dogs', this.result);
     
-    this.searchYoutube = (query) => {
-      youTube.searchYoutube(query, this.handleData);
+    this.search = () => {
+      youTube.search(this.searchString, this.result);
+      this.searchString = '';
     };
     
   },

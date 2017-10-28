@@ -4,7 +4,7 @@ angular.module('video-player')
   
   bindings: {
     videos: '<',
-    updateDefault: '<'
+    onClick: '<'
   },
   
   templateUrl: 'src/templates/videoList.html'

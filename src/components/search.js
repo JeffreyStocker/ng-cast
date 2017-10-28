@@ -1,16 +1,15 @@
 angular.module('video-player')
 .component('search', {
   bindings: {
-    handleSearch: '<'
+    result: '<'
   },
-  controller: function () {
+  controller: function(youTube) {
+    this.service = {};
     this.searchString = '';
-    this.handleClick = () => {
-      this.handleSearch(this.searchString);
+    this.invokeSearch = () => {
+      youTube.search(this.searchString, this.result);
       this.searchString = '';
     };
   },
-  
-    // TODO
   templateUrl: 'src/templates/search.html'
 });

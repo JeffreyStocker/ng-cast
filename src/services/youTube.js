@@ -2,7 +2,7 @@ angular.module('video-player')
 .service('youTube', function($http) {
   // TODO
   
-  this.searchYoutube = function(searchString = 'monkeys', callback) { 
+  this.search = function(searchString = 'monkeys', callback) { 
     $http({
       method: 'GET', 
       url: 'https://www.googleapis.com/youtube/v3/search',
