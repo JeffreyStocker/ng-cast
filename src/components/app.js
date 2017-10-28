@@ -13,11 +13,16 @@ angular.module('video-player')
       this.currentVideo = data[0];
     };
     
+    this.detailResult = (data) => {
+      this.videoDetails = data.items[0];
+      // console.log (this.videoDetails);
+    };
+    
     this.onClick = (video) => {
       this.currentVideo = video;
     };
     
-    youTube.search('trees', this.result);
+    youTube.search('trees', this.result, this.detailResult);
     
     this.search = () => {
       youTube.search(this.searchString, this.result);

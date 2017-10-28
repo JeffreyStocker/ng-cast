@@ -2,7 +2,7 @@ angular.module('video-player')
 .service('youTube', function($http) {
   // TODO
   
-  this.search = function(searchString = 'monkeys', callback) { 
+  this.search = function(searchString = 'monkeys', callback, detailCallback) { 
     $http({
       method: 'GET', 
       url: 'https://www.googleapis.com/youtube/v3/search',
@@ -14,12 +14,30 @@ angular.module('video-player')
         videoEmbeddable: true,
         type: 'video'
       }
-    }).then(function successfullCallback(response) {
-      callback (response.data.items);
-      // console.log ('response: ', response);
-      // console.log ('callback: ', callback);
+    }).then(response => {
+      callback(response.data.items);
+      this.videoDetails(response.data.items[0].id.videoId, detailCallback);
     }, function errorCallback(response) {
       console.error ('error: ', response);
     });
   };
+  
+  this.videoDetails = function (videoId, detailCallback) {
+    $http ({
+      method: 'GET', 
+      url: 'https://www.googleapis.com/youtube/v3/videos',
+      params: {
+        part: 'snippet',
+        videoEmbeddable: true,
+        type: 'video',
+        key: window.YOUTUBE_API_KEY,
+        id: videoId
+      }
+    }).then(response => {
+      detailCallback(response.data);
+    }, function errorCallback(response) {
+      console.error ('error: ', response);
+    });
+  };
+  
 });

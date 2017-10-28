@@ -6,10 +6,15 @@
   </nav>
   <div class="row">
     <div class="col-md-7">
-      <video-player video="$ctrl.currentVideo"></video-player>
+      <div>
+        <video-player video-details="$ctrl.videoDetails" video="$ctrl.currentVideo"></video-player>
+      </div>
+      <div>
+      <video-list on-click="$ctrl.onClick" videos="$ctrl.videos"></video-list>
+      </div>
     </div>
     <div class="col-md-5">
-      <video-list on-click="$ctrl.onClick" videos="$ctrl.videos"></video-list>
+      <chatter-box>Chatterbox Goes here </chatter-box>
     </div>
   <div>
 </div>

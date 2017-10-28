@@ -3,7 +3,8 @@ angular.module('video-player')
 .component('videoPlayer', {
   // TODO
   bindings: {
-    video: '='
+    video: '=',
+    videoDetails: '<'
   },
   controller: function () {
     this.getYoutubeSrc = function (videoId) {
