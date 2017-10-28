@@ -5,16 +5,22 @@ angular.module('video-player')
   controller: function ($scope, youTube) {
     this.selectVideo = function () {};
     this.searchResults = function () {};
+
     
     this.handleData = (data) => {
       this.videos = data;  
       this.currentVideo = data[0];
     };
     
-    this.currentVideo = exampleVideoData[0];
-    this.videos = exampleVideoData;
-
+    this.updateDefault = (video) => {
+      this.currentVideo = video;
+    };
+    
     youTube.searchYoutube('dogs', this.handleData);
+    
+    this.searchYoutube = (query) => {
+      youTube.searchYoutube(query, this.handleData);
+    };
     
   },
   templateUrl: 'src/templates/app.html'

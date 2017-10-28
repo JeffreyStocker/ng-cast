@@ -10,7 +10,9 @@ angular.module('video-player')
         q: searchString,
         maxResults: 5,
         key: window.YOUTUBE_API_KEY,
-        part: 'snippet'
+        part: 'snippet',
+        videoEmbeddable: true,
+        type: 'video'
       }
     }).then(function successfullCallback(response) {
       callback (response.data.items);
