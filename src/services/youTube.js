@@ -40,4 +40,22 @@ angular.module('video-player')
     });
   };
   
+  
+  this.getChatterbox = function (callback) {
+    $http({
+      method: 'GET',
+      contentType: 'application/json',
+      url: window.CHATTERBOX_SERVER,
+      headers: {
+        'X-Parse-Application-Id': window.CHATTERBOX_ID,
+        'X-Parse-REST-API-Key': window.CHATTERBOX_API_KEY,
+      }
+    }).then(response => {
+      console.log (response);
+      callback (response);
+    }, function errorCallback (errorResponse) {
+      console.error (errorResponse);
+    });
+  };
+  
 });

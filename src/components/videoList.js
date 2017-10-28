@@ -1,6 +1,5 @@
 angular.module('video-player')
 .component('videoList', {
-  // TODO
   
   bindings: {
     videos: '<',
@@ -8,6 +7,4 @@ angular.module('video-player')
   },
   
   templateUrl: 'src/templates/videoList.html'
-  
-  
 });

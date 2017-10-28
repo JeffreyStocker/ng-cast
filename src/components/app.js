@@ -28,7 +28,7 @@ angular.module('video-player')
       youTube.search(this.searchString, this.result);
       this.searchString = '';
     };
-    
+    youTube.getChatterbox(()=>{});
   },
   templateUrl: 'src/templates/app.html'
 });
