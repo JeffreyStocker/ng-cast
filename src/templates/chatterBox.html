@@ -1,4 +1,4 @@
-<div> 
+<div class="video-player-details" style="height: 60%; position: absolute"> 
   <div>Title</div>
   <div>
     Chat Room:
@@ -6,10 +6,12 @@
       <option>Fill Me IN</option>
     </select>
   </div>
-  <div class="newMessage">
+  <div class="newMessage" ng-click="$ctrl.checkData()">
     New Message
+    <input type:'text'>
   </div>
-  <div class='chatbox' >
-    <text-message ng-repeat="message in $ctrl.messages"></text-message>
+  <div class='chatbox' style="overflow-y: scroll; height: 85%">
+    <text-message ng-repeat="message in $ctrl.chatterBoxMessages" message-data="message">
+    </text-message>
   </div>
 </div>

@@ -4,10 +4,7 @@ angular.module('video-player')
     
   },
   bindings: {
-    
+    messageData: '<'
   },
-  templateUrl: 'src/templates/testMessages.html'
-
-
-
+  templateUrl: 'src/templates/textMessage.html'
 });

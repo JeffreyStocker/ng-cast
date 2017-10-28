@@ -4,9 +4,8 @@ angular.module('video-player')
   // TODO
   controller: function ($scope, youTube) {
     this.selectVideo = function () {};
-    this.searchResults = function () {
-      
-    };
+    this.searchResults = function () {};
+    this.chatterBoxMessages;
     
     this.result = (data) => {
       this.videos = data;  
@@ -28,7 +27,10 @@ angular.module('video-player')
       youTube.search(this.searchString, this.result);
       this.searchString = '';
     };
-    youTube.getChatterbox(()=>{});
+    youTube.getChatterbox((data)=>{
+      this.chatterBoxMessages = data.data.results;
+      // console.log ('app level:', this.chatterBoxMessages);
+    });
   },
   templateUrl: 'src/templates/app.html'
 });

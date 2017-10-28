@@ -51,7 +51,7 @@ angular.module('video-player')
         'X-Parse-REST-API-Key': window.CHATTERBOX_API_KEY,
       }
     }).then(response => {
-      console.log (response);
+      // console.log (response);
       callback (response);
     }, function errorCallback (errorResponse) {
       console.error (errorResponse);
